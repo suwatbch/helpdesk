@@ -1,0 +1,267 @@
+body, html {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    font-family: Tahoma; /*Verdana,Arial,Helvetica,sans-serif;*/
+	background-color: white;
+}
+
+
+#tb_PEA{
+    border: #B9BCBD solid 2px;
+    width: 100%;
+    /*background-color: #dce6ee;*/
+}
+
+#tb_PEA tr th {
+    vertical-align: central;
+    width: 15%;
+    /*border-right: #B9BCBD solid thin;*/
+}
+
+#tb_PEA tr th img {
+    background-image: url('../../images/pea.png');
+}
+
+#tb_PEA tr td {
+    width: 85%;
+    vertical-align: central;
+}
+
+#tb_PEA tr td span#big{
+    color: #4D4D4D;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#tb_PEA tr td span#small{
+    color: #4D4D4D;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#tb_ReportName{
+    /*border: #B9BCBD solid thin;*/
+    width: 100%;
+    /*background-color: #a66;*/
+    border-bottom:  #cc0000 solid 5px;
+}
+
+#tb_ReportName tr td{
+    width: 100%;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#tb_data{
+    width: 100%;
+    border: gray solid thin;
+    color: black;
+    font-size: 12px;
+    
+}
+
+#tb_data tr{
+     border: gray solid thin;
+}
+
+#tb_data tr th{
+     border: gray solid thin;
+     background-color: #B9BCBD;
+     color: #444444;
+         
+}
+
+#tb_data tr td{
+     border: gray solid thin;     
+}
+
+
+.nonborder{
+    border : none;
+}
+
+.total{
+    color: #cc0000;
+}
+
+.totalpercent{
+    color: #FF4000;
+    /*font-weight: bold;*/
+}
+
+.totalAll{
+    background-color: #ebddc4;
+    color: red;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.rotate{
+    display:block;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+}
+
+#datahead{
+     background-color: #F3E2A9; /*#edc;*/
+     font-weight: bold;
+     color: #178AEB;
+}
+
+#datasub{
+    /*font-weight: bold;*/
+    
+}
+
+#datasub-count{
+    /*font-weight: bold;*/
+    background-color: #E6E0F8
+}
+
+.nodata{
+    background-color: #d1d1ff
+}
+
+
+.tb_additional{
+    border: gray solid thin;
+    color: black;
+    font-size: 12px;
+}
+
+.tb_additional tr{
+     border: gray solid thin;
+}
+
+.tb_additional tr th{
+     border: gray solid thin;
+     background-color: #C3C7D3;
+     color: #444444;
+         
+}
+
+.tb_additional tr td{
+     border: gray solid thin;     
+}
+
+.tb_additional tr td input{
+     border: none;
+     width: 99%;
+     height: 16px;
+     font-size: 10.5px;
+}
+
+.tb_additional tr td img{
+     border: none;
+     cursor: pointer;
+}
+
+.tb_additional tr td textArea{
+     border: none;
+     width: 99%;
+     height: 16px;
+     font-size: 10.5px;
+     resize: none;
+}
+
+.comment_subject{
+    background-color: #ffc4c4;
+    font-weight: bold;
+    font-size: 12.5px;
+    border: gray solid thin;
+    padding-left: 10px;
+}
+
+
+#send{
+    width: 50px;
+    height: 16px;
+    border:#B40431 solid thin;
+    vertical-align: center;
+    align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 8.5pt;
+    font-family: Tahoma;
+    background-color: #B40431;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+}
+
+
+#final{
+    width: 100px;
+    height: 16px;
+    border:#B40431 solid thin;
+    vertical-align: center;
+    align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 8.5pt;
+    font-family: Tahoma;
+    background-color: #B40431;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: left;
+}
+
+#export_excel{
+    width: 50px;
+    height: 16px;
+    border:#B40431 solid thin;
+    vertical-align: center;
+    align: center;
+    /*font-weight: bold;*/
+    color: white;
+    font-size: 8.5pt;
+    font-family: Tahoma;
+    background-color: #B40431;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    /*float: left;*/
+  
+}
+
+#export_print{
+    width: 50px;
+    height: 16px;
+    border:#B40431 solid thin;
+    vertical-align: center;
+    align: center;
+    /*font-weight: bold;*/
+    color: white;
+    font-size: 8.5pt;
+    font-family: Tahoma;
+    background-color: #B40431;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    /*float: right;*/
+}
+
+span{
+    font-weight: bold;
+}
+
+
+#message{
+    color: #cc0000;
+    font-size: 12px;
+    font-weight: bold;
+    float: left;
+    padding-right: 30px
+}
+
+.button{
+    cursor: pointer;
+}
+

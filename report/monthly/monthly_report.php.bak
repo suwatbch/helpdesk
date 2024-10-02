@@ -1,0 +1,501 @@
+<?php
+include_once '../../include/config.inc.php';
+include_once '../../include/template/index_report.tpl.php';
+include_once '../../include/class/util/dateUtil.class.php';
+include_once "../../include/error_message.php";
+                           
+
+$comp_id = $_GET["comp"];
+$start_date = $_GET["start"];
+$end_date = $_GET["end"];
+
+
+$dp_start = dateUtil::thai_date($start_date);
+$dp_end = dateUtil::thai_date($end_date);
+
+
+
+
+$text_head_1 = "ระบบ Helpdesk";
+$text_head_2 = "โครงการจ้างพัฒนา บำรุงรักษาและแก้ไขโปรแกรมสำเร็จรูป SAP";
+$text_reportname = "รายงานการให้บริการของบริษัท พอร์ทัลเน็ท จำกัด  ในช่วงเวลา $dp_start ถึง $dp_end";
+
+
+include_once 'monthly_report.action.php';
+if ($chk_dup_data != 0) {
+    echo "<script type='text/javascript'>
+    alert('มีรายการในช่วงเวลาที่คุณเลือกอยู่แล้ว กรุณาเลือกวันที่ให้ถูกต้อง')
+    window.close();
+    </script>";
+}
+if($criteria["arr_criteria"]){ $arr_criteria = $criteria["arr_criteria"]; }
+if($criteria["total_row"]){ $total_row_criteria = $criteria["total_row"]; }
+
+$pea = array();
+
+$grandtotal_pea = array();
+$grandtotal_total = 0;
+
+//echo $_SERVER["PHP_SELF"];
+
+//additional part
+$report_id = "0";
+$response_id = "";
+$final = "";
+$report_type_id = 7; // monthly report
+$additional_hd = array();
+$additional_dt = array();
+
+$additional_hd = getadditional_hd($comp_id,$start_date,$end_date,$report_type_id);
+if ($additional_hd){
+    foreach ($additional_hd["data"] as $value) {
+        $report_id = $value["id"];
+        $response_id = $value["response_id"];
+        $final = $value["final"];
+    }
+    $additional_dt = getadditional_dt($report_id);
+}
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8 />
+        <meta name="viewport" content="width=620" />
+        <title>Incident Monthly Report</title>
+        <link type="text/css" rel="stylesheet" href="../../include/css/report.css"/>
+        
+<!--        <script type="text/javascript" src="../../include/config.js.php"></script>
+        <script type="text/javascript" src="../../include/js/jquery/jquery-1.5.1.js"></script>
+        <script type="text/javascript" src="../../include/js/function.js"></script>
+        <script type="text/javascript" src="../../include/js/srs/common.js"></script>
+        <script type="text/javascript" src="../../include/js/srs/filter.js"></script>
+        <script type="text/javascript" src="../../include/js/srs/form.js"></script>
+        <script type="text/javascript" src="<?=$application_path_js?>/jquery/jquery-1.5.1.js"></script>
+        <script type="text/javascript" src="<?=$application_path_js?>/jquery/ui/jquery-ui-1.8.13.custom.min.js"></script>
+        <script type="text/javascript" src="<?=$application_path_js?>/jquery/meio/jquery.meio.mask.min.js"></script>
+        <script type="text/javascript" src="<?=$application_path_include?>/config.js.php"></script>
+        <script type="text/javascript" src="<?=$application_path_js?>/function.js"></script>
+        <script type="text/javascript" src="<?=$application_path_js?>/srs/common.js"></script>
+        <script type="text/javascript" src="<?=$application_path_js?>/srs/form.js"></script>-->
+        <script type="text/javascript">
+         $(document).ready(function () {    
+             
+            
+            $("#send").click(function() {
+                
+                var employee_id = $("#employee_id").val();
+                if (employee_id == "0" || employee_id == "") {
+                    alert("กรุณาเลือกพนักงานที่ต้องการก่อนการบันทึก!");
+                    return false;
+                };
+                
+                var head = [];
+                var tb1 = [[],[]];
+                var tb2 = [[],[]];
+                var tb3 = [[],[]];
+                
+                tb1 = gettableval("tb_additional_1");
+                tb2 = gettableval("tb_additional_2");
+                tb3 = gettableval("tb_additional_3");
+                
+                head[0] = "save";
+                head[1] = $("#report_type_id").val() ;
+                head[2] = $("#comp_id").val();
+                head[3] = $("#start_date").val();
+                head[4] = $("#end_date").val();
+                head[5] = $("#employee_id").val();
+                head[6] = $("#report_id").val();
+                head[7] = "N"; //approve report (no edit anymore)
+ 
+                
+            $.ajax({
+                type: "POST",
+                url: "../common/additional.action.php",
+                data : {t1:tb1,t2:tb2,t3:tb3,header:head} ,         
+                beforeSend:function(){
+                    // this is where we append a loading image
+                    $('#ajax-panel').html('<img src="../../images/loading_small.gif" alt="Loading..." />');
+                },
+                success: function(respone){
+                    if (respone == ""){
+                        $("#message").html('บันทึกรายการไม่สมบูรณ์!');
+                    }else {
+                        $("#report_id").val(respone);
+                        $("#message").html("บันทึกรายการเรียบร้อยแล้ว");
+                        
+                        var emp = $("#employee_id").val();
+                        var us = $("#user_id").val();
+                        
+                        if (emp != us){
+                            $("span#employee").hide();
+                            $("#send").hide();
+                            $("#final").hide();
+//                               $("#savearea").hide();
+                        }
+                        
+                    }
+                    $('#ajax-panel').empty();
+                 
+                },
+                error:function(){
+                 $("#message").html('บันทึกรายการไม่สมบูรณ์!');
+                 $('#ajax-panel').empty();  
+                }
+            });
+        });
+        
+        
+        
+        
+        $("#final").click(function() {
+//alert('final');
+                var head = [];
+                var tb1 = [[],[]];
+                var tb2 = [[],[]];
+                var tb3 = [[],[]];
+                
+                tb1 = gettableval("tb_additional_1");
+                tb2 = gettableval("tb_additional_2");
+                tb3 = gettableval("tb_additional_3");
+                
+                head[0] = "save";
+                head[1] = $("#report_type_id").val() ;
+                head[2] = $("#comp_id").val();
+                head[3] = $("#start_date").val();
+                head[4] = $("#end_date").val();
+                head[5] = $("#response_id").val(); //approve report : response = own user_id
+                head[6] = $("#report_id").val();
+                head[7] = "Y"; //approve report (no edit anymore)
+ 
+            $.ajax({
+                type: "POST",
+                url: "../common/additional.action.php",
+                data : {t1:tb1,t2:tb2,t3:tb3,header:head} ,         
+                beforeSend:function(){
+                    // this is where we append a loading image
+                    $('#ajax-panel').html('<img src="../../images/loading_small.gif" alt="Loading..." />');
+                },
+                success: function(respone){
+                    if (respone == ""){
+                        $("#message").html('บันทึกรายการไม่สมบูรณ์!');
+                    }else {
+                        $("#message").html("บันทึกรายการเรียบร้อยแล้ว");
+                        
+//                        $("#savearea").hide();
+                        $("span#employee").hide();
+                        $("#send").hide();
+                        $("#final").hide();
+                    }
+                    $('#ajax-panel').empty();
+                 
+                },
+                error:function(){
+                 $("#message").html('บันทึกรายการไม่สมบูรณ์!');
+                 $('#ajax-panel').empty();  
+                }
+            });
+        });
+        
+        
+        
+        
+        $("a[name=1_addRow]").click(function() {
+            appendTR("tb_additional_1");
+            return false;
+ 	});
+        
+        
+        $("a[name=2_addRow]").click(function() {
+            appendTR("tb_additional_2");
+            return false;
+ 	});
+        
+        
+        $("a[name=3_addRow]").click(function() {
+            appendTR("tb_additional_3");
+            return false;
+ 	});
+        
+        
+        $("table.tb_additional a.nonborder").live("click", function() {
+		$(this).parents("tr").remove();
+				
+	});
+        
+        $("#export_excel").click(function(){
+//                alert('aa');
+                var url = 'monthly_export.php' + '?comp=' + <?=$_GET["comp"];?> + '&start=' + <?=$_GET["start"];?> + '&end=' + <?=$_GET["end"];?> ;
+                window.open(url, '',''); 
+         });
+        
+       
+        
+});
+
+
+
+// function gettableval(name){
+//    var tb = [[],[]] ;
+//    var tb_name = "#" + name + " tr";
+//    var n = 0;
+//    
+//    $(tb_name).each(function() {
+//            var $this = $(this);
+//            var number,text1,text2,text3,text4,remark;
+//            number = $this.find('#number').val();
+////            alert(number); // check for skip thead    
+//            if (number != null && number != undefined){
+//
+////                if ( $this.find('#text1').val() !=)
+//                text1 = $this.find('#text1').val();
+//                alert(text1);
+//                text2 = $this.find('#text2').val();
+//                text3 = $this.find('#text3').val();
+//                text4 = $this.find('#text4').val();
+//                remark = $this.find('#remark').val();
+//            
+//                // check empty?
+//                if (number != "" || text1 != "" || text2 != "" || text3 != "" || text4 != "" || remark != ""){
+//                    tb[n][0] = number;
+//                    tb[n][1] = text1;
+//                    tb[n][2] = text2; 
+//                    tb[n][3] = text3;
+//                    tb[n][4] = text4;
+//                    tb[n][5] = remark;
+//                    n = n+1;
+//                }
+//
+//            }
+//        });
+//   return tb;  
+//   
+//}
+//
+//    function appendTR(name){
+//        var tb_name = "table#" + name + " tr:last";//# + name + " tr";
+//        var str_append = "<tr>";
+//        str_append += "<td align='center'><a id='trash' name='trash' class='nonborder' ><img src='<?=$application_path_images;?>/trash.png' /></a></td>";
+//        str_append += "<td><input type='text' name='number' id='number' style='text-align: center;' value='' /></td>";
+//        str_append += "<td><input type='text' name='text1' id='text1' value='' /></td>";
+//        str_append += "<td><input type='text' name='text2' id='text2' value='' /></td>";
+//        str_append += "<td><input type='text' name='text3' id='text3' value='' /></td>";
+//        str_append += "<td><input type='text' name='text4' id='text4' value='' /></td>";
+//        str_append += "<td><input type='text' name='remark' id='remark' value='' /></td>";
+//        str_append += "</tr>";
+////        $(tb_name).append(str_append);
+//        $(tb_name).after(str_append);
+//        return false;
+//
+//    }
+
+
+
+        
+        </script>
+    </head>
+    <body>
+        <?
+             include_once '../common/export.php';
+            include_once '../common/report_header.php';
+        ?>
+        <br>
+        <div name="Data">
+            <table id="tb_data">
+                <tr height="100px">
+                    <th align="center" width="20%">Module</th>
+                    <th align="center" width="10%">Quantity & Percentage</th>
+                    
+            <?
+                if (count($arr_criteria) > 0){ 
+                    $i = 0;
+                    foreach ($arr_criteria as $list) {
+                        $pea[$i] = $list["zone_id"];
+                        $grandtotal_pea[$i] = 0;
+                ?>
+                    <th align="center" width="5%"><div class="rotate" ><?=$list["name"];?></div></th>
+                <?
+                    $i++;
+                    }
+                }
+            ?>
+                    <th align="center" width="5%"><span class="total">Grand Total: #Ticket/%Ticket</span></th>
+                </tr>
+                
+                <?
+                    $incident_type = getincidenttype($comp_id);
+                    foreach ($incident_type as $list) {
+                        
+                        $incident_type_id = $list["ident_type_id"];
+                        $total_bytype = 0;
+                        
+                        ?>
+                <tr>
+                    <td colspan="2" id="datahead"><?=$list["ident_type_desc"];?></td>
+                    <?
+                            // count incident by type,zone
+                            $count_byzone = array();
+                        for ($index = 0; $index < count($pea); $index++) {
+                            $zone_id = $pea[$index];
+                            $count_byzone[$index] = countIncident_typezone($comp_id,$incident_type_id,$start_date,$end_date,$zone_id);
+                            $total_bytype += $count_byzone[$index];
+                            
+                            
+                            //Grand Total
+                            $grandtotal_pea[$index] += $count_byzone[$index];
+                            $grandtotal_total += $count_byzone[$index];
+                            
+                                
+                    ?>
+                    
+                    <td id="datahead" align="right"><?= $count_byzone[$index];?></td>
+                    
+                    <?
+                        }//end count incident type by zone
+                    ?>
+                    <td id="datahead" align="right"><span class="total"><?=$total_bytype;?></span></td>
+                </tr>
+                    <?
+                        //get resolved product class3 master
+                        $class3 = getclass3($comp_id);
+                        if (count($class3) > 0){ 
+                            foreach ($class3 as $list){
+                                $class3_id = $list["prd_tier_id"];
+                                $class3_name = $list["prd_tier_name"];
+                                $count_class3 = array();
+                                $total_count_class3 = 0;
+                                
+                                //loop to count incident class3 by zone
+                                for ($index = 0; $index < count($pea); $index++) {
+                                    $zone_id = $pea[$index];
+                                    $count_class3[$index] = countIncident_typezoneclass3($comp_id,$incident_type_id,$class3_id,$start_date,$end_date,$zone_id);
+                                    $total_count_class3 += $count_class3[$index];
+
+                                }
+                                
+                                // if has data : write <tr>
+                                if ($total_count_class3 != 0){
+                                ?>
+                <!--  ============ จำนวน Ticket ===================== --> 
+                <tr>
+                    <td align="left" id="datasub-count"><?=$class3_name;?></td>
+                    <td align="left" id="datasub-count">จำนวน Ticket</td>
+                                <?  // write count zone
+                                    for ($index = 0; $index < count($count_class3); $index++) {
+                                    ?>
+                    <td align="right" id="datasub-count"><?=$count_class3[$index];?></td>
+                                    <?
+                                    
+                                    }
+                                    
+                                    ?>
+                    <td align="right" id="datasub-count"><span class="total"><?=$total_count_class3;?></span></td>
+                </tr> <!-- end จำนวน Ticket -->  
+                
+                <!--  ============ % เทียบตาม Module ===================== --> 
+                <tr>
+                    <td align="left" id="datasub">&nbsp;</td>
+                    <td align="left" id="datasub">% เทียบตาม Module</td>
+                                <?  // write count zone
+                                    for ($index = 0; $index < count($count_class3); $index++) {
+                                        $percentage = 0.0;
+                                        if ($count_class3[$index] != 0){
+                                           $percentage =  ($count_class3[$index]/$total_count_class3)*100;
+                                        }
+                                    ?>
+                    <td align="right" id="datasub"><?=round($percentage,2)."%"; ?></td>
+                                    <?
+                                    
+                                    }
+                                    
+                                    $total_percentage = ($total_count_class3/$total_bytype)*100;
+                                    ?>
+                    <td rowspan="2" align="right" id="datasub"><span class="totalpercent"><?=  round($total_percentage,2). "%";?></span></td>
+                </tr> <!-- end เทียบตาม Module -->  
+                
+                <!--  ============ % เทียบตามเขต กฟภ. ===================== --> 
+                <tr>
+                    <td align="left" id="datasub">&nbsp;</td>
+                    <td align="left" id="datasub">% เทียบตามเขต.</td>
+                                <?  // write count zone
+                                    for ($index = 0; $index < count($count_class3); $index++) {
+                                        $percentage = 0.0;
+                                        if ($count_class3[$index] != 0){
+                                            if ($count_byzone[$index] == 0){
+                                                $percentage = 0;
+                                            }else {
+                                                $percentage =  ($count_class3[$index]/$count_byzone[$index])*100;
+                                            }
+                                           
+                                        }
+                                    ?>
+                    <td align="right" id="datasub"><?=round($percentage,2)."%"; ?></td>
+                                    <?
+                                    
+                                    }
+                                    
+//                                    $total_percentage = ($total_count_class3/$total_bytype)*100;
+                                    ?>
+                   </tr> <!-- end เทียบตาม Module -->  
+                
+                
+                                        <?
+                                }//end check has data to write
+                            }//end loop master class3
+                        }//end if master class3
+                     
+                    }// end loop incident_type master
+                
+                ?>
+                   
+                   <tr>
+                       <td align="left" class="totalAll" colspan="2" >Grand Total</td>
+                       <?
+                        foreach ($grandtotal_pea as $value) {
+                            ?>
+                        <td class="totalAll" align="right"><?=$value;?></td>
+                             <?
+                        }
+                    ?>
+                     <td class="totalAll" align="right"><?=$grandtotal_total;?></td>
+                   </tr>
+                
+                
+                
+            </table>
+        </div>
+        <br> <br>
+        <input type="hidden" id="comp_id" name="comp_id" value="<?= $_GET["comp"];?>" />
+        <input type="hidden" id="start_date" name="start_date" value="<?= $_GET["start"];?>" />
+        <input type="hidden" id="end_date" name="end_date" value="<?= $_GET["end"];?>" />
+        <input type="hidden" id="report_type_id" name="report_type_id" value="7" />
+        
+        <?
+            if ($grandtotal_total != 0){
+               ?>
+                   
+        <hr>
+        <div width="60%">
+            <?  
+                $subject_add = "*จากสถิติจำนวนตามโมดูลงานที่ติดต่อผ่านเจ้าหน้าที่ SPIES  ช่วงเวลา $dp_start ถึง $dp_end";
+//                $report_type_id = 7; //monthly report
+                include_once '../common/additional.php';  
+            ?>
+        </div>   
+                   
+                   <? 
+                
+                
+            }
+        ?>
+        
+        
+    <!--<link type="text/css" rel="stylesheet" href="../../include/css/cctstyles.css"/>-->    
+<!--    <div id="dialog-customer" title="Customer">
+        <iframe id="ifr_cus_id" frameborder="0" scrolling="no" width="100%" height="100%" src="" style="background-color: white; alignment-adjust: central;"></iframe>
+    </div>       -->
+        
+        
+    </body>
+</html>

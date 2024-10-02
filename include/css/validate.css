@@ -1,0 +1,72 @@
+#vali {
+	BACKGROUND: url(validate.gif) no-repeat
+}
+#rnd_container {
+	BACKGROUND: #ebddc4; MARGIN: 1px
+}
+.rnd_top {
+	DISPLAY: block; FONT-SIZE: 1px; BACKGROUND: #ebddc4
+}
+.rnd_bottom {
+	DISPLAY: block; FONT-SIZE: 1px; BACKGROUND: #ebddc4
+}
+.rnd_b1 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.rnd_b2 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.rnd_b3 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.rnd_b4 {
+	DISPLAY: block; OVERFLOW: hidden
+}
+.rnd_b1 {
+	HEIGHT: 1px
+}
+.rnd_b2 {
+	HEIGHT: 1px
+}
+.rnd_b3 {
+	HEIGHT: 1px
+}
+.rnd_b2 {
+	BORDER-RIGHT: #336699 1px solid; BACKGROUND: #bfd5ee; BORDER-LEFT: #336699 1px solid
+}
+.rnd_b3 {
+	BORDER-RIGHT: #336699 1px solid; BACKGROUND: #bfd5ee; BORDER-LEFT: #336699 1px solid
+}
+.rnd_b4 {
+	BORDER-RIGHT: #336699 1px solid; BACKGROUND: #bfd5ee; BORDER-LEFT: #336699 1px solid
+}
+.rnd_b1 {
+	BACKGROUND: #336699; MARGIN: 0px 5px
+}
+.rnd_b2 {
+	BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 2px; BORDER-BOTTOM-WIDTH: 0px; MARGIN: 0px 3px; BORDER-RIGHT-WIDTH: 2px
+}
+.rnd_b3 {
+	MARGIN: 0px 2px
+}
+.rnd_b4 {
+	MARGIN: 0px 1px; HEIGHT: 2px
+}
+.rnd_content {
+	BORDER-RIGHT: #336699 1px solid; PADDING-RIGHT: 4px; BORDER-TOP: #336699 0px solid; DISPLAY: block; PADDING-LEFT: 4px; BACKGROUND: #bfd5ee; PADDING-BOTTOM: 4px; BORDER-LEFT: #336699 1px solid; COLOR: #302d27; PADDING-TOP: 4px; BORDER-BOTTOM: #336699 0px solid
+}
+.validate_url {
+	BORDER-RIGHT: #336699 1px solid; BORDER-TOP: #336699 1px solid; FONT-SIZE: 12pt; BORDER-LEFT: #336699 1px solid; WIDTH: 450px; PADDING-TOP: 6px; BORDER-BOTTOM: #336699 1px solid; FONT-FAMILY: Tahoma; HEIGHT: 24px
+}
+.button-bg {
+	BORDER-RIGHT: #166777 1px solid; BORDER-TOP: #166777 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #166777 1px solid; WIDTH: 150px; CURSOR: pointer; BORDER-BOTTOM: #166777 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; HEIGHT: 30px; BACKGROUND-COLOR: #82b3b2
+}
+SELECT {
+	WIDTH: 140px
+}
+TEXTAREA {
+	BORDER-RIGHT: #336699 1px solid; BORDER-TOP: #336699 1px solid; BORDER-LEFT: #336699 1px solid; WIDTH: 100%; BORDER-BOTTOM: #336699 1px solid; HEIGHT: 150px
+}
+.upload {
+	BORDER-RIGHT: #336699 1px solid; BORDER-TOP: #336699 1px solid; BORDER-LEFT: #336699 1px solid; WIDTH: 400px; BORDER-BOTTOM: #336699 1px solid; HEIGHT: 24px
+}

@@ -1,0 +1,41 @@
+#tt
+{
+    position:absolute;
+    display:block;
+    font-size: 11px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    /*background:url(images/tt_left.gif) top left no-repeat;*/
+}
+
+#tttop
+{
+    display:block;
+    height:5px;
+    margin-left:5px;
+    font-size: 11px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    overflow:hidden;
+    /*background:url(images/tt_top.gif) top right no-repeat;*/
+}
+
+#ttcont
+{
+    display:block;
+    padding:2px 12px 3px 7px;
+    margin-left:5px;
+    background:#666;
+    color:#FFF;
+    font-size: 11px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+#ttbot
+{
+    display:block;
+    height:5px;
+    margin-left:5px;
+    overflow:hidden;
+    font-size: 11px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    /*background:url(images/tt_bottom.gif) top right no-repeat;*/
+}

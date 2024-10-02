@@ -1,0 +1,568 @@
+body, html {
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+/* =========== My CSS ===============*/
+.welcome{
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#divLeft{
+    float: left;
+    width: 49%;
+    border-right: #D4D6D6 solid thin;
+}
+
+#divRight{
+    float: right;
+    width: 50%;
+}
+
+#GO{
+    width: 30px;
+    height: 16px;
+    border:#B40431 solid thin;
+    vertical-align: center;
+    align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 8.5pt;
+    font-family: Tahoma;
+    background-color: #B40431;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#adv_search{
+    cursor: pointer;
+}
+
+#tb_adv_left tr td {
+    color: #777777; 
+    font-size: 11px;
+}
+
+#tb_adv_left tr th{
+    color: #777777; /*#585858;*/
+    font-size: 11px;
+    border-bottom:#B9BCBD solid thin;
+    
+}
+
+#tb_adv_left tr td input,textArea{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #B9BCBD;
+    font-size: 12px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+.box_search{
+    background-image: url(../../images/search_box.png);
+    background-size: 90% 100%;
+    background-repeat: no-repeat; 
+    background-position: center;
+}
+
+.styleGrayBig {
+    color: gray;
+    font-size: 12px;
+    font-weight: bold;
+    vertical-align: central;
+}
+.styleBlue {
+    color: #0489B1;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: #D8D8D8 0.1em 0.1em 0.2em;
+    
+}
+
+.styleGray {
+    color: #585858;
+    font-size: 12px;
+    font-weight: bold;
+    text-shadow: #D8D8D8 0.1em 0.1em 0.2em;
+}
+.styleBlue_master1 {
+    color: #04f;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+.styleBlue_master2 {
+    color: #6375D6;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+.styleBlue_master3 {
+    color : #777777;
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+
+.RedRemark{
+    color: #cc0000;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.styleMenuGray {
+    color: #585858;
+    font-size: 12px;
+    
+}
+/* =========== END My CSS ===============*/
+
+.footComp{
+    color:#424242;
+    font-size: 9px;
+    }
+
+.footRed{
+    color: #B40431;
+     font-weight: bold;
+     font-size: 9px;
+    /*size: 8pt;*/
+    }
+.footGray{
+    color: #424242;
+    font-size: 7px;
+    }
+            
+          
+            
+input{
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #B9BCBD;
+    font-size: 12px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+input[type=text]{
+   height: 16px;
+}
+
+input[type=checkbox], input[type=radio]{
+   border: 0px;
+}
+
+input.disabled{
+    background-color: #E3E3E3;
+}
+
+
+
+select{
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+.select_dis{
+    background-color: #E3E3E3;
+    border: 1px solid #B9BCBD;
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px; color:#666;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+	overflow:hidden;
+	-webkit-appearance: none;
+}
+
+
+textarea {
+    padding: 0px;
+    margin: 0px;
+    border: 1px solid #B9BCBD;
+    font-size: 12px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+textarea.disabled{
+    background-color: #E3E3E3;
+}
+
+
+
+/****** h ******/
+h1, h2, h3, h4, h5, h6{
+    padding: 0px;
+    margin: 0px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+h1{
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 14px;
+}
+
+h5{
+    font-size: 12px;
+}
+
+h6{
+    font-size: 10px;
+}
+
+
+/****** a *****/
+a:link{
+    text-decoration: none;
+    color: #585858;
+}
+
+a:visited{
+    text-decoration: none;
+    color: #585858;
+}
+
+a:active{
+    text-decoration: none;
+    color: #585858;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: #585858;
+}
+
+/****** css ******/
+.required{
+    color: red;
+    font-size: 12px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+.box_input{
+    border: #336699;
+    padding: 5px;
+    background: #E5F2FF;
+}
+
+/****** input-button ******/
+.input-button{
+    background-color: #D4D6D6;
+    border: 1px solid #B9BCBD;
+    /*border: 1px solid #788480;*/
+    color: #000000;
+    font-size: 12px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+.input-button-save{
+    background: no-repeat 3px url(../../images/save.png) #D4D6D6;
+    padding-left: 10px;
+}
+
+.input-button-undo{
+    background: no-repeat 3px url(../../images/undo.png) #D4D6D6;
+    padding-left: 10px;
+}
+
+.input-button-back{
+    background: no-repeat 3px url(../../images/back2.png) #D4D6D6;
+    padding-left: 10px;
+}
+
+.input-button-new{
+    background: no-repeat 3px url(../../images/plus.png) #D4D6D6;
+    padding-left: 8px;
+}
+
+.input-button-appv{
+    background: no-repeat 3px url(../../images/accept_green.png) #D4D6D6;
+    padding-left: 8px;
+}
+
+.input-button-rej{
+    background: no-repeat 3px url(../../images/action_fail.png) #D4D6D6;
+    padding-left: 8px;
+}
+
+/****** tr ******/
+.tr_header{
+/*    padding: 0px 2px 0px 2px;
+    margin: 0px;
+    border: 0px;
+    height: 18px;
+    background-color: #ccccff;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;*/
+    color: #777777; /*#585858;*/
+    font-size: 11px;
+    font-weight : bold;
+    border-bottom:#B9BCBD solid thin;
+    width : 180px;
+    text-align : left;
+}
+.tr_header1{
+/*    padding: 0px 2px 0px 2px;
+    margin: 0px;
+    border: 0px;
+    height: 18px;
+    background-color: #ccccff;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;*/
+    color: #777777; /*#585858;*/
+    font-size: 11px;
+    font-weight : bold;
+    border-bottom:#B9BCBD solid thin;
+    width : 110px;
+    text-align : left;
+   
+}
+
+.tr_detail{
+    padding: 0px 2px 0px 2px;
+    margin: 0px;
+    border: 0px;
+    height: 15px;
+    background-color: #E7E8DF;
+    font-weight: normal;
+    font-size: 12px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+/****** error ******/
+.error{
+    background-color: #FFFFCC;
+    color: #FF0000;
+}
+
+h1.error, div.error{
+    margin: 0.5em 0 0.5em 0;
+    border: 2px solid #FF0000;
+    width: 98%;
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+    background-color: #FFFFCC;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+div.error h1{
+    border-bottom: 2px solid #ff0000;
+    font-weight: bold;
+    font-size: medium;
+    margin: 0 0 0.2em 0;
+    color: #FF0000;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+
+/****** info ******/
+h1.info, div.info {
+    margin: 0.5em 0 0.5em 0;
+    border: 2px solid #00FF00;
+    width: 98%;
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+    background-color: #FFFFCC;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+div.info h1{
+    border-bottom: 0.1em solid #00FF00;
+    font-weight: bold;
+    font-size: medium;
+    margin: 0 0 0.2em 0;
+    color: #000000;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+
+/****** confirm ******/
+h1.confirm, div.confirm{
+    margin: 0.5em 0 0.5em 0;
+    border: 2px solid orange;
+    width: 98%;
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 36px;
+    background-color: #FFFFCC;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+div.confirm h1{
+    border-bottom: 0.1em solid orange;
+    font-weight: bold;
+    font-size: medium;
+    margin: 0 0 0.2em 0;
+    color: #000000;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+
+/****** notice ******/
+.notice{
+    color: #000000;
+    background-color:#FFFFDD;
+}
+
+h1.notice, div.notice{
+    margin: 0.5em 0 0.5em 0;
+    border: 0.1em solid #FFD700;
+    width: 100%;
+    background-repeat:  no-repeat;
+    background-position: 10px 50%;
+    padding: 10px 10px 10px 10px;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+.notice h1{
+    border-bottom: 0.1em solid #FFD700;
+    font-weight: bold;
+    margin: 0 0 0.2em 0;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+}
+
+.button-action input{
+    width: 80px;
+    height: 25px;
+}
+
+div.waiting{
+    border: 1px solid #000000;
+    background-color: #FBEC88;
+    padding: 0px 2px 0px 2px;
+    margin: 0px 0px 0px 0px;
+    font-size: 12px;
+    height: 16px;
+}
+
+.wordwrap {
+   white-space: pre-wrap;      /* CSS3 */
+   white-space: -moz-pre-wrap; /* Firefox */
+   white-space: -pre-wrap;     /* Opera <7 */
+   white-space: -o-pre-wrap;   /* Opera 7 */
+   word-wrap: break-word;      /* IE */
+}
+
+ .ellipsis {
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    width:150px;
+    display:block;
+    -o-text-overflow: ellipsis;	/* required for Opera */
+    -ms-text-overflow: ellipsis;	/* required for IE8, allegedly */
+    /*-moz-binding: url('ellipsis.xml#ellipsis');    /* for Firefox; details here */
+}
+
+
+/****** data-table ******/
+.data-table{
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    border: 0px 0px 0px 0px;
+}
+
+.data-table thead tr{
+    font-weight: bold;
+    height: 20px;
+    background-color: #B9BCBD;
+    /*color: whitesmoke;*/
+    text-align: center;
+}
+
+.data-table tbody tr{
+    font-weight: normal;
+    height: 18px;
+    background-color: #E7E8DF;
+}
+
+.data-table tbody tr.even{
+    background-color: #DBE0CB;
+}
+
+.data-table tbody tr.odd{
+    background-color: #E6EAD7;
+}
+
+.data-table tbody tr:hover, .data-table tbody tr.highlight{
+    background-color: #CCD4AF;
+}
+
+.data-table thead tr td, .data-table tbody tr td{
+    padding: 0px 2px 0px 2px;
+}
+
+
+/****** jquery ui ******/
+span.ui-state-default {
+    padding: .4em 1em .4em 20px;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+span.ui-state-default span.ui-icon {
+    margin: 0 5px 0 0;
+    position: absolute;
+    left: .2em;
+    top: 50%;
+    margin-top: -8px;
+}
+
+
+.SLA_summary{
+    cursor: pointer;
+    text-decoration: none;
+    /*color: gray;*/
+    font-size: 10.5px;
+    font-weight: bold;
+    vertical-align: central;
+}
+
+
+.SLA_summary:hover{
+    cursor: pointer;
+    text-decoration: underline;
+    /*color: gray;*/
+    font-size: 10.5px;
+    font-weight: bold;
+    vertical-align: central;
+    
+}
+
+.readonly{
+    background-color: #E3E3E3;
+    border: #D8D8D8 solid thin;
+}
+
+
+
+
+

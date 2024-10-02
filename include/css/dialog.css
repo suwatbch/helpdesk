@@ -1,0 +1,16 @@
+body, html{
+    background-color: #EDEDED; /* #E9E9E9;*/
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+
+input[type=button]{
+    width: 55px;
+    height: 18px;
+}
+
+div#divbutton{
+    text-align: center;
+    margin: 4px 0px 0px 0px;
+}

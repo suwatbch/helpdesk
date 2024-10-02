@@ -1,0 +1,198 @@
+<?php
+include_once "../../include/template/index_report.tpl.php";
+include_once '../../include/config.inc.php';
+//include_once 'additional.action.php';
+
+
+?>
+<link type="text/css" rel="stylesheet" href="../../include/css/report.css"/>
+<script type="text/javascript" src="../../dialog/dialog.ui.js"></script>
+<script type="text/javascript">
+ $(document).ready(function () {	
+ 	// Code between here will only run when the document is ready
+ 	$("a[name=1_addRow]").click(function() {
+ 		// Code between here will only run when the a link is clicked and has a name of addRow
+                var str_append = "<tr>";
+                str_append += "<td align='center'><a id='trash' name='trash' class='nonborder' ><img src='<?=$application_path_images;?>/trash.png' /></a></td>";
+                str_append += "<td><input type='text' name='1_number[]' id='1_number[]' style='text-align: center;' /></td>";
+                str_append += "<td><input type='text' name='1_text1[]' id='1_text1[]' /></td>";
+                str_append += "<td><input type='text' name='1_text2[]' id='1_text2[]' /></td>";
+                str_append += "<td><input type='text' name='1_text3[]' id='1_text3[]' /></td>";
+                str_append += "<td><input type='text' name='1_text4[]' id='1_text4[]' /></td>";
+                str_append += "<td><input type='text' name='1_remark[]' id='1_remark[]' /></td>";
+                str_append += "</tr>";
+ 		$("table#tb_additional_1 tr:last").after(str_append);
+		return false;
+ 	});
+        
+        
+        $("a[name=2_addRow]").click(function() {
+ 		// Code between here will only run when the a link is clicked and has a name of addRow
+                var str_append = "<tr>";
+                str_append += "<td align='center'><a id='trash' name='trash' class='nonborder' ><img src='<?=$application_path_images;?>/trash.png' /></a></td>";
+                str_append += "<td><input type='text' name='2_number[]' id='2_number[]' style='text-align: center;' /></td>";
+                str_append += "<td><input type='text' name='2_text1[]' id='2_text1[]' /></td>";
+                str_append += "<td><input type='text' name='2_text2[]' id='2_text2[]' /></td>";
+                str_append += "<td><input type='text' name='2_text3[]' id='2_text3[]' /></td>";
+                str_append += "<td><input type='text' name='2_text4[]' id='2_text4[]' /></td>";
+                str_append += "<td><input type='text' name='2_remark[]' id='2_remark[]' /></td>";
+                str_append += "</tr>";
+ 		$("table#tb_additional_2 tr:last").after(str_append);
+		return false;
+ 	});
+        
+        
+        $("a[name=3_addRow]").click(function() {
+ 		// Code between here will only run when the a link is clicked and has a name of addRow
+                var str_append = "<tr>";
+                str_append += "<td align='center'><a id='trash' name='trash' class='nonborder' ><img src='<?=$application_path_images;?>/trash.png' /></a></td>";
+                str_append += "<td><input type='text' name='3_number[]' id='3_number[]' style='text-align: center;' /></td>";
+                str_append += "<td><input type='text' name='3_text1[]' id='3_text1[]' /></td>";
+                str_append += "<td><input type='text' name='3_text2[]' id='3_text2[]' /></td>";
+                str_append += "<td><input type='text' name='3_text3[]' id='3_text3[]' /></td>";
+                str_append += "<td><input type='text' name='3_text4[]' id='3_text4[]' /></td>";
+                str_append += "<td><input type='text' name='3_remark[]' id='3_remark[]' /></td>";
+                str_append += "</tr>";
+ 		$("table#tb_additional_3 tr:last").after(str_append);
+		return false;
+ 	});
+        
+        
+        $("table.tb_additional a.nonborder").live("click", function() {
+				$(this).parents("tr").remove();
+				
+	});
+        
+
+});
+        
+        
+ 
+ 
+        
+ 
+ function dialog_onSelected(lookuptype, obj){
+        if (obj != null){
+            if (lookuptype == "employee"){
+                $("#employee_id").val(obj.employee_id);                
+                $("#employee_name").val(obj.employee_name);
+
+            }
+          } 
+}
+ 
+ 
+
+ 
+ 
+</script>
+
+<label id="document_no" name="document_no"></label>
+<label id="message" name="message"></label><br><br>
+<input type="text" id="mode" name="mode" />
+
+
+<table width="60%" cellpadding="0" cellspacing="5">
+    <tr>
+        <td align="left" style="width: 350px;">
+            <span lookuptype="employee" name="employee" id="employee" style="width: 300px;" title="Employee"  dialogWidth="627" dialogHeight="400" 
+                  param="monthly=Y" ></span> 
+        </td>
+         <td align="left" style="width: 80px;">
+             <div align="center" id="send" name="send" >Send</div>&nbsp;&nbsp;&nbsp;
+                
+            
+        </td>
+        <td align="left" style="width: 120px;">
+            <div align="center" id="final" name="final" >Final Report</div>
+            
+        </td>
+        <td align="left" style="width: 300px;">
+            <div id="ajax-panel" name="ajax-panel"></div>
+            
+        </td>
+     </tr>
+</table>
+<br><br>
+
+<div name="additional">
+    <span><b><? echo $subject_add;?></b></span><br><br><br>
+    <div class="comment_subject" style="width: 90%">ด้านพัฒนาบุคคลากร</div><br>
+    <table id="tb_additional_1" class="tb_additional" width="90%">
+        <tr>
+            <th width="3%"><a href="#" name="1_addRow"><img src="<?=$application_path_images;?>/plus.png" /></a></th>
+            <th width="5%">ลำดับ</th>
+            <th width="25%">ระบบงานที่ควรพัฒนาบุคคลากร</th>
+            <th width="10%">% สถิติการแจ้ง SPIES ทั้งหมด</th>
+            <th width="22%">เขตการไฟฟ้าที่ควรเข้ารับการพัฒนาบุคคลากร</th>
+            <th width="10%">% สถิติการแจ้ง SPIES เทียบกับเขตอื่นๆ</th>
+            <th width="25%">ข้อเสนอแนะ</th>
+        </tr>
+        <tr>
+            <td align="center"><a id="trash" name="trash" class="nonborder"><img src="<?=$application_path_images;?>/trash.png" /></a></td>
+            <td><input type="text" name="1_number" id="1_number" style="text-align: center;" /></td>
+            <td><input type="text" name="1_text1[]" id="1_text1[]" /></td>
+            <td><input type="text" name="1_text2[]" id="1_text2[]" /></td>
+            <td><input type="text" name="1_text3[]" id="1_text3[]" /></td>
+            <td><input type="text" name="1_text4[]" id="1_text4[]" /></td>
+            <td><input type="text" name="1_remark[]" id="1_remark[]" /></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    
+    <div class="comment_subject" style="width: 90%">ด้านการปรับปรุง ป้องกันระบบงาน IT และกระบวนการปฎิบัติงาน</div><br>
+    
+    <table id="tb_additional_2" class="tb_additional"  width="90%">
+        <tr>
+            <th width="3%"><a href="#" name="2_addRow"><img src="<?=$application_path_images;?>/plus.png" /></a></th>
+            <th width="5%">ลำดับ</th>
+            <th width="25%">ระบบงาน IT ที่ควรปรับปรุง ป้องกัน</th>
+            <th width="10%">% สถิติการแจ้ง SPIES ทั้งหมด</th>
+            <th width="22%">เขตการไฟฟ้าที่ควรปรับปรุงกระบวนการปฏิบัตงาน</th>
+            <th width="10%">% สถิติการแจ้ง SPIES  เทียบกับเขตอื่นๆ</th>
+            <th width="25%">ข้อเสนอแนะ</th>
+        </tr>
+        <tr>
+            <td align="center"><a id="trash" name="trash" class="nonborder"><img src="<?=$application_path_images;?>/trash.png" /></a></td>
+            <td><input type="text" name="2_number[]" id="2_number[]" style="text-align: center;" /></td>
+            <td><input type="text" name="2_text1[]" id="2_text1[]" /></td>
+            <td><input type="text" name="2_text2[]" id="2_text2[]" /></td>
+            <td><input type="text" name="2_text3[]" id="2_text3[]" /></td>
+            <td><input type="text" name="2_text4[]" id="2_text4[]" /></td>
+            <td><input type="text" name="2_remark[]" id="2_remark[]" /></td>
+        </tr>
+        
+    </table>
+    
+    
+    <br>
+    <br>
+    
+    <div class="comment_subject" style="width: 90%">ประเด็นติดตามจากเดือนก่อนหน้า</div><br>
+    
+    <table id="tb_additional_3" class="tb_additional"  width="90%">
+        <tr>
+            <th width="3%"><a href="#" name="3_addRow"><img src="<?=$application_path_images;?>/plus.png" /></a></th>
+            <th width="5%">ลำดับ</th>
+            <th width="25%">ประเด็นที่ติดตาม</th>
+            <th width="10%">เขตการไฟฟ้า</th>
+            <th width="22%">แนวทางการแก้ไข</th>
+            <th width="10%">ผลการปรับปรุง</th>
+            <th width="25%">ข้อเสนอแนะ</th>
+        </tr>
+        <tr>
+            <td align="center"><a id="trash" name="trash" class="nonborder"><img src="<?=$application_path_images;?>/trash.png" /></a></td>
+            <td><input type="text" name="3_number[]" id="3_number[]" style="text-align: center;" /></td>
+            <td><input type="text" name="3_text1[]" id="3_text1[]" /></td>
+            <td><input type="text" name="3_text2[]" id="3_text2[]" /></td>
+            <td><input type="text" name="3_text3[]" id="3_text3[]" /></td>
+            <td><input type="text" name="3_text4[]" id="3_text4[]" /></td>
+            <td><input type="text" name="3_remark[]" id="3_remark[]" /></td>
+        </tr>
+    </table>
+    
+    <br><br>
+    
+</div>
+<!--</form>-->

@@ -1,0 +1,48 @@
+*&---------------------------------------------------------------------*
+*& Report Z_DELETE_FMIA
+*&---------------------------------------------------------------------*
+*& Selective delete from table FMIA
+*&---------------------------------------------------------------------*
+REPORT z_delete_fmia.
+
+DATA: l_t_fmia TYPE TABLE OF fmia.
+* ALV
+DATA: l_p_alv    TYPE REF TO cl_salv_table,
+      gr_display TYPE REF TO cl_salv_display_settings.
+
+PARAMETERS: p_belnr TYPE cobk-belnr,
+            p_year  TYPE cobk-gjahr,
+            p_kokrs TYPE cobk-kokrs,
+            p_test  DEFAULT 'X'.
+
+SELECT * FROM fmia INTO TABLE l_t_fmia
+  WHERE refdocnr = p_belnr
+    AND refryear = p_year
+    AND kokrs    = p_kokrs.
+
+SORT l_t_fmia BY kokrs refdocnr.
+
+IF p_test IS INITIAL.
+
+  CALL FUNCTION 'FM_CO_INTEGRATION_DELETE'
+    TABLES
+      i_t_fmia = l_t_fmia.
+  COMMIT WORK.
+
+ENDIF.
+
+* display the list (ALV)
+  CALL METHOD cl_salv_table=>factory
+    IMPORTING
+      r_salv_table = l_p_alv
+    CHANGING
+      t_table      = l_t_fmia.
+
+  gr_display = l_p_alv->get_display_settings( ).
+  gr_display->set_striped_pattern( cl_salv_display_settings=>true ).
+  IF p_test IS INITIAL.
+    gr_display->set_list_header( 'Update run').
+  ELSE.
+    gr_display->set_list_header( 'Test run').
+  ENDIF.
+  l_p_alv->display( ).

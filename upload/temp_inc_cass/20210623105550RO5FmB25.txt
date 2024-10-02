@@ -1,0 +1,77 @@
+Process:                      	Post                          	
+Success:                      	                           52 	Records
+Error:                        	                            0 	Records
+                              	                              	
+ลำดับที่                      	Result                        	Error Log
+1                             	Success                       	Mat doc: 4900006279 Year: 2021
+2                             	Success                       	Mat doc: 4900006279 Year: 2021
+3                             	Success                       	Mat doc: 4900006280 Year: 2021
+4                             	Success                       	Mat doc: 4900006361 Year: 2021
+5                             	Success                       	Mat doc: 4900006362 Year: 2021
+6                             	Success                       	Mat doc: 4900006363 Year: 2021
+7                             	Success                       	Mat doc: 4900006364 Year: 2021
+8                             	Success                       	Mat doc: 4900006365 Year: 2021
+9                             	Success                       	Mat doc: 4900006366 Year: 2021
+10                            	Success                       	Mat doc: 4900006367 Year: 2021
+11                            	Success                       	Mat doc: 4900006368 Year: 2021
+12                            	Success                       	Mat doc: 4900006369 Year: 2021
+13                            	Success                       	Mat doc: 4900006369 Year: 2021
+14                            	Success                       	Mat doc: 4900006369 Year: 2021
+15                            	Success                       	Mat doc: 4900006369 Year: 2021
+16                            	Success                       	Mat doc: 4900006369 Year: 2021
+17                            	Success                       	Mat doc: 4900006369 Year: 2021
+18                            	Success                       	Mat doc: 4900006370 Year: 2021
+19                            	Success                       	Mat doc: 4900006370 Year: 2021
+20                            	Success                       	Mat doc: 4900006370 Year: 2021
+21                            	Success                       	Mat doc: 4900006371 Year: 2021
+22                            	Success                       	Mat doc: 4900006371 Year: 2021
+23                            	Success                       	Mat doc: 4900006371 Year: 2021
+24                            	Success                       	Mat doc: 4900006372 Year: 2021
+25                            	Success                       	Mat doc: 4900006372 Year: 2021
+26                            	Success                       	Mat doc: 4900006372 Year: 2021
+27                            	Success                       	Mat doc: 4900006373 Year: 2021
+28                            	Success                       	Mat doc: 4900006373 Year: 2021
+29                            	Success                       	Mat doc: 4900006373 Year: 2021
+30                            	Success                       	Mat doc: 4900006373 Year: 2021
+31                            	Success                       	Mat doc: 4900006374 Year: 2021
+32                            	Success                       	Mat doc: 4900006374 Year: 2021
+33                            	Success                       	Mat doc: 4900006375 Year: 2021
+34                            	Success                       	Mat doc: 4900006375 Year: 2021
+35                            	Success                       	Mat doc: 4900006375 Year: 2021
+36                            	Success                       	Mat doc: 4900006375 Year: 2021
+37                            	Success                       	Mat doc: 4900006375 Year: 2021
+38                            	Success                       	Mat doc: 4900006375 Year: 2021
+39                            	Success                       	Mat doc: 4900006375 Year: 2021
+40                            	Error                         	Error:Annual budget exceeded by 454.14 THB (FM PB Availability Control) for several document items from item 00002 on
+41                            	Error                         	Error:Annual budget exceeded by 454.14 THB (FM PB Availability Control) for several document items from item 00002 on
+42                            	Error                         	Error:Annual budget exceeded by 454.14 THB (FM PB Availability Control) for several document items from item 00002 on
+43                            	Success                       	Mat doc: 4900006376 Year: 2021
+44                            	Success                       	Mat doc: 4900006376 Year: 2021
+45                            	Success                       	Mat doc: 4900006377 Year: 2021
+46                            	Success                       	Mat doc: 4900006377 Year: 2021
+47                            	Success                       	Mat doc: 4900006378 Year: 2021
+48                            	Error                         	Error:Annual budget exceeded by 1,249.38 THB (FM PB Availability Control) for several document items from item 00002 on
+49                            	Error                         	Error:Annual budget exceeded by 1,249.38 THB (FM PB Availability Control) for several document items from item 00002 on
+50                            	Error                         	Error:Annual budget exceeded by 1,249.38 THB (FM PB Availability Control) for several document items from item 00002 on
+51                            	Error                         	Error:Annual budget exceeded by 1,249.38 THB (FM PB Availability Control) for several document items from item 00002 on
+52                            	Error                         	Error:Annual budget exceeded by 280.62 THB (FM PB Availability Control) for several document items from item 00002 on
+53                            	Error                         	Error:Annual budget exceeded by 280.62 THB (FM PB Availability Control) for several document items from item 00002 on
+54                            	Error                         	Error:Annual budget exceeded by 280.62 THB (FM PB Availability Control) for several document items from item 00002 on
+55                            	Error                         	Error:Annual budget exceeded by 280.62 THB (FM PB Availability Control) for several document items from item 00002 on
+56                            	Success                       	Mat doc: 4900006379 Year: 2021
+57                            	Success                       	Mat doc: 4900006379 Year: 2021
+58                            	Success                       	Mat doc: 4900006379 Year: 2021
+59                            	Success                       	Mat doc: 4900006379 Year: 2021
+60                            	Success                       	Mat doc: 4900006379 Year: 2021
+61                            	Error                         	Error:Annual budget exceeded by 85.78 THB (FM PB Availability Control) for several document items from item 00002 on
+62                            	Error                         	Error:Annual budget exceeded by 85.78 THB (FM PB Availability Control) for several document items from item 00002 on
+63                            	Error                         	Error:Annual budget exceeded by 85.78 THB (FM PB Availability Control) for several document items from item 00002 on
+64                            	Error                         	Error:Annual budget exceeded by 85.78 THB (FM PB Availability Control) for several document items from item 00002 on
+65                            	Error                         	Error:Annual budget exceeded by 65.90 THB (FM PB Availability Control) for document item 00002
+66                            	Error                         	Error:Annual budget exceeded by 65.90 THB (FM PB Availability Control) for document item 00002
+67                            	Error                         	Error:Annual budget exceeded by 65.90 THB (FM PB Availability Control) for document item 00002
+68                            	Error                         	Error:Annual budget exceeded by 85.78 THB (FM PB Availability Control) for several document items from item 00002 on
+69                            	Error                         	Error:Annual budget exceeded by 85.78 THB (FM PB Availability Control) for several document items from item 00002 on
+70                            	Success                       	Mat doc: 4900006380 Year: 2021
+71                            	Success                       	Mat doc: 4900006380 Year: 2021
+72                            	Success                       	Mat doc: 4900006380 Year: 2021
