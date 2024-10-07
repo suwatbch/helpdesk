@@ -178,7 +178,7 @@ $message = '
 // 	alert_message("Error to sent mail new assigned ,please contact administrator ", "", ERROR_MESSAGE);
 // }
 
-/*$host = 'smtp.gmail.com'; // เปลี่ยนเป็น SMTP เซิร์ฟเวอร์ของ Gmail
+$host = 'smtp.gmail.com'; // เปลี่ยนเป็น SMTP เซิร์ฟเวอร์ของ Gmail
 $username = 'portalnet099@gmail.com'; // เปลี่ยนเป็นอีเมลของคุณ
 $password = 'skdx hxwb rzcu uvha'; // ใช้รหัสผ่านแอปแทนรหัสผ่านปกติ
 $from = 'portalnet099@gmail.com'; // กำหนดผู้ส่ง
