@@ -33,20 +33,20 @@
     //$db_schemata 			= "helpdeskv2";
 
 	
-	$db_host 				= "localhost";
-	$db_user 				= "root";
-	$db_password 			= "";
-	$db_schemata 			= "helpdesk";
+	// $db_host 				= "localhost";
+	// $db_user 				= "root";
+	// $db_password 			= "";
+	// $db_schemata 			= "helpdesk";
 
     // $db_host 				= "115.178.63.11";
 	// $db_user 				= "swmaxnet_helpdesk";
 	// $db_password 			= "3of7USpBpD%FCw";
 	// $db_schemata 			= "swmaxnet_db-helpdesk_v2";
 
-	// $db_host 				= "localhost";
-    // 	$db_user 				= "rootadmin";
-    // 	$db_password 			= "&0rM5g19m";
-    // 	$db_schemata 			= "db-helpdesk_v2";
+	 $db_host 				= "103.80.49.238";
+     	$db_user 				= "rootadmin";
+     	$db_password 			= "&0rM5g19m";
+     	$db_schemata 			= "db-helpdesk_v2";
 
 
     # System Name
